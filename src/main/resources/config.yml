@@ -1,0 +1,55 @@
+# PandeDiscord Plugin made by Jairusu#5237
+# This plugin is inspired by Scarsz's plugin DiscordSRV
+# This plugin is created to link PandesalSMP server to Jairusu's Land Discord server
+
+# You need to add your botToken to enable the plugin
+# Restart the server if you change your botToken
+botToken: "botToken"
+
+# The activity name is the one that shows up in your Discord bot status
+# Example: Playing Minecraft
+activityName: "Minecraft"
+
+# The role name and color in your Discord server
+# Can be anything you like
+# Don't forget to add # in the hex color
+roleName: "Minecraft Player"
+roleHex: "#F2CD74"
+
+# Player join/leave message
+# This is only sent in the Discord Server
+# This is also different in the InGame join/leave message
+# The newJoinMessage is for new players joining
+joinMessage: "%player% joined the Server"
+leaveMessage: "%player% left the Server"
+newJoinMessage: "%player% joined the Server for the First Time!"
+
+# Enable server status to send a message to the channel whenever the server start/stops
+serverStatus:
+  enabled: false
+  channelId: "channelId"
+  startMessage: "**Server has Started!**"
+  stopMessage: "**Server has Stopped!**"
+
+# If you have multiple worlds, and you want each world's to have their separate Discord channel
+# You can add more if you like
+worldGroups:
+  group1:
+    worlds:
+      - "world"
+      - "world_nether"
+      - "world_the_end"
+    channelId: "channelId"
+    webhookUrl: "webhookUrl"
+# group2:
+#   worlds:
+#     - "lobby"
+#     - "hub"
+#   channelId: "channelId"
+#   webhookUrl: "webhookUrl"
+# group3:
+#   worlds:
+#     - "arena"
+#     - "pvp"
+#   channelId: "channelId"
+#   webhookUrl: "webhookUrl"

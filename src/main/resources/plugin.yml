@@ -1,0 +1,4 @@
+name: PandeDiscord
+version: '${project.version}'
+main: plugin.pandediscord.PandeDiscord
+api-version: 1.19

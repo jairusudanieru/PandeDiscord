@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class DiscordBot {
+
     public JDA jda;
     private final JavaPlugin plugin;
     public DiscordBot(JavaPlugin plugin) {
@@ -57,4 +58,5 @@ public class DiscordBot {
     public void setJDA(JDA jda) {
         this.jda = jda;
     }
+
 }

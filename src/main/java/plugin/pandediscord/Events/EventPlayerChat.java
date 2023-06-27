@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 public class EventPlayerChat implements Listener {
+
     private final JavaPlugin plugin;
     private final JDA jda;
     public EventPlayerChat(JavaPlugin plugin, JDA jda) {
@@ -67,4 +68,5 @@ public class EventPlayerChat implements Listener {
             }
         }
     }
+
 }

@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 public class EventPlayerChangeWorld implements Listener {
+
     private final JavaPlugin plugin;
     private final JDA jda;
     public EventPlayerChangeWorld(JavaPlugin plugin, JDA jda) {
@@ -88,4 +89,5 @@ public class EventPlayerChangeWorld implements Listener {
 
         }
     }
+
 }

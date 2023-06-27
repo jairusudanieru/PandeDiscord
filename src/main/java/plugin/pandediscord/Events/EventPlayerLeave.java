@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 public class EventPlayerLeave implements Listener {
+
     private final JavaPlugin plugin;
     private final JDA jda;
     public EventPlayerLeave(JavaPlugin plugin, JDA jda) {
@@ -71,4 +72,5 @@ public class EventPlayerLeave implements Listener {
             }
         }
     }
+
 }

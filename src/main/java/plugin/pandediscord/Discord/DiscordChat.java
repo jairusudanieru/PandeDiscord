@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 public class DiscordChat extends ListenerAdapter {
+
     private final JavaPlugin plugin;
     public DiscordChat(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -25,7 +26,7 @@ public class DiscordChat extends ListenerAdapter {
         boolean haveAttachment = event.getMessage().getAttachments().size() > 0;
         boolean authorIsBot = event.getAuthor().isBot();
         boolean authorIsSys = event.getAuthor().isSystem();
-        String authorName = event.getAuthor().getName();
+        String authorName = "@" + event.getAuthor().getName();
         String currentChannel = event.getChannel().getId();
         String roleName = plugin.getConfig().getString("roleName");
         String roleColor = plugin.getConfig().getString("roleHex");
@@ -84,7 +85,6 @@ public class DiscordChat extends ListenerAdapter {
                         for (Message.Attachment attachment : event.getMessage().getAttachments()) {
                             String attachmentName = attachment.getFileName();
                             String attachmentMessage = chatPrefix + chatAuthorTag + attachmentName;
-                            String attachmentRawMessage = chatRawPrefix + chatAuthorTag + attachmentName;
                             player.sendMessage(attachmentMessage);
                         }
                     }
@@ -92,4 +92,5 @@ public class DiscordChat extends ListenerAdapter {
             }
         }
     }
+
 }

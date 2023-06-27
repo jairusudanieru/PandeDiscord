@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Set;
 
 public class EventPlayerAdvancement implements Listener {
+
     private final JavaPlugin plugin;
     private final JDA jda;
     public EventPlayerAdvancement(JavaPlugin plugin, JDA jda) {
@@ -82,4 +83,5 @@ public class EventPlayerAdvancement implements Listener {
             }
         }
     }
+
 }

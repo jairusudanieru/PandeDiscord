@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 public class EventPlayerAuthMe implements Listener {
+
     private final JavaPlugin plugin;
     private final JDA jda;
     public EventPlayerAuthMe(JavaPlugin plugin, JDA jda) {
@@ -112,4 +113,5 @@ public class EventPlayerAuthMe implements Listener {
             }
         }
     }
+
 }

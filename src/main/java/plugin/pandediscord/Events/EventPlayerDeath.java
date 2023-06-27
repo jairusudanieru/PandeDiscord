@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 public class EventPlayerDeath implements Listener {
+
     private final JavaPlugin plugin;
     private final JDA jda;
     public EventPlayerDeath(JavaPlugin plugin, JDA jda) {
@@ -67,4 +68,5 @@ public class EventPlayerDeath implements Listener {
             }
         }
     }
+
 }

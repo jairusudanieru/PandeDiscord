@@ -1,7 +1,7 @@
 package plugin.pandediscord.Discord;
 
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
@@ -20,7 +20,7 @@ public class DiscordChat extends ListenerAdapter {
     }
 
     @Override
-    public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
+    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         //Event variables
         boolean haveAttachment = event.getMessage().getAttachments().size() > 0;
         boolean authorIsBot = event.getAuthor().isBot();
@@ -39,7 +39,7 @@ public class DiscordChat extends ListenerAdapter {
 
         //Message that will be sent on the Minecraft Server
         String chatAuthorTag = authorName + " >> ";
-        String chatContent = event.getMessage().getContentRaw();
+        String chatContent = event.getMessage().getContentDisplay();
         String chatPrefix = "§r[§bDiscord §r| " + of(roleColor) + roleName + "§r] ";
         String chatRawPrefix = "[Discord | " + roleName + "] ";
         if (chatContent.length() > 180) chatContent = chatContent.substring(0, 180) + "...";

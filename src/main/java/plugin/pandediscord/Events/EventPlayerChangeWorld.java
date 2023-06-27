@@ -1,13 +1,16 @@
 package plugin.pandediscord.Events;
 
+import fr.xephi.authme.api.v3.AuthMeApi;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
@@ -34,6 +37,10 @@ public class EventPlayerChangeWorld implements Listener {
         String leaveMessage = plugin.getConfig().getString("leaveMessage");
         String joinHexColor = "#00FF00";
         String leaveHexColor = "#FF0000";
+
+        //Checking if the player is not logged in
+        Plugin authMe = Bukkit.getServer().getPluginManager().getPlugin("AuthMe");
+        if (authMe != null) if (!AuthMeApi.getInstance().isAuthenticated(player)) return;
 
         //Checking if the player name contains a floodgate prefix
         playerName = playerName.replace("*","").replace(".","");

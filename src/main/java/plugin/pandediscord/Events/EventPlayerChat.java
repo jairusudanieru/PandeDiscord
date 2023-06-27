@@ -1,13 +1,13 @@
 package plugin.pandediscord.Events;
 
-import io.papermc.paper.event.player.AsyncChatEvent;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import plugin.pandediscord.Discord.DiscordWebhook;
@@ -24,12 +24,12 @@ public class EventPlayerChat implements Listener {
     }
 
     @EventHandler
-    public void onPlayerChat(@NotNull AsyncChatEvent event) {
+    public void onPlayerChat(@NotNull AsyncPlayerChatEvent event) {
         //Event variables
         Player player = event.getPlayer();
         String playerName = player.getName();
         String playerWorld = player.getWorld().getName();
-        String playerMessage = event.message().toString();
+        String playerMessage = event.getMessage();
 
         //Checking if the player name contains a floodgate prefix
         playerName = playerName.replace("*","").replace(".","");

@@ -46,6 +46,21 @@ public class DiscordChat extends ListenerAdapter {
         String fullMessage = chatPrefix + chatAuthorTag + chatContent;
         String rawMessage = chatRawPrefix + chatAuthorTag + chatContent;
 
+        //Logging into console
+        if (!haveAttachment) {
+            Bukkit.getLogger().info(rawMessage);
+        } else {
+            if (!chatContent.isEmpty()) {
+                Bukkit.getLogger().info(rawMessage);
+            }
+            //Checking if the message have attachments
+            for (Message.Attachment attachment : event.getMessage().getAttachments()) {
+                String attachmentName = attachment.getFileName();
+                String attachmentRawMessage = chatRawPrefix + chatAuthorTag + attachmentName;
+                Bukkit.getLogger().info(attachmentRawMessage);
+            }
+        }
+
         //Getting the worlds, webhookUrl and channelId in the configuration
         ConfigurationSection worldGroups = plugin.getConfig().getConfigurationSection("worldGroups");
         if (worldGroups == null) return;
@@ -61,11 +76,9 @@ public class DiscordChat extends ListenerAdapter {
                 if (worldNames.contains(world)) {
                     if (!haveAttachment) {
                         player.sendMessage(fullMessage);
-                        Bukkit.getLogger().info(rawMessage);
                     } else {
                         if (!chatContent.isEmpty()) {
                             player.sendMessage(fullMessage);
-                            Bukkit.getLogger().info(rawMessage);
                         }
                         //Checking if the message have attachments
                         for (Message.Attachment attachment : event.getMessage().getAttachments()) {
@@ -73,7 +86,6 @@ public class DiscordChat extends ListenerAdapter {
                             String attachmentMessage = chatPrefix + chatAuthorTag + attachmentName;
                             String attachmentRawMessage = chatRawPrefix + chatAuthorTag + attachmentName;
                             player.sendMessage(attachmentMessage);
-                            Bukkit.getLogger().info(attachmentRawMessage);
                         }
                     }
                 }
